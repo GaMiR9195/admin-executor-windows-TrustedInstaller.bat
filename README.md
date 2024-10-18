@@ -1,1 +1,1 @@
-# admin-executor-windows-TrustedInstaller.bat
+# Good "console" executor with rights of TRUSTEDINSTALLER!!!
