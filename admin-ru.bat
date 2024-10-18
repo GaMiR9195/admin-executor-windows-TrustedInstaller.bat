@@ -28,16 +28,22 @@ echo.
 echo.
 set /p userCommand="!НЕ СЛОМАЙТЕ СИСТЕМУ НАХУЙ! команда: "
 
+if "%userCommand%"=="" (
+    echo Пожалуйста, введите команду!
+    timeout /nobreak /t 2 >nul
+    goto :menu
+)
+
 timeout /nobreak /t 1 >nul
 
 echo.
 echo =======================================
-sc.exe stop TrustedInstaller
+net stop TrustedInstaller
 sc.exe config TrustedInstaller binpath= "cmd /c %userCommand%"
-sc.exe start TrustedInstaller
-sc.exe stop TrustedInstaller
+net start TrustedInstaller
+net stop TrustedInstaller
 sc.exe config TrustedInstaller binpath= "C:\Windows\servicing\TrustedInstaller.exe"
-sc.exe start TrustedInstaller
+net start TrustedInstaller
 echo =======================================
 echo.
 

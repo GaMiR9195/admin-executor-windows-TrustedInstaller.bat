@@ -26,7 +26,15 @@ echo.
 echo.
 
 echo.
+:input
 set /p userCommand="!WARNING! execute: "
+
+if "%userCommand%"=="" (
+    echo Please enter command!
+    timeout /nobreak /t 2 >nul
+    cls
+    goto :menu
+)
 
 timeout /nobreak /t 1 >nul
 
