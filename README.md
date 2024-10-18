@@ -1,0 +1,1 @@
+# admin-executor-windows-TrustedInstaller.bat
