@@ -1,4 +1,4 @@
-# helpful tool for 100% access of your system in one file! | полезный инструмент для изменения системных файлов или ввода системных команд на уровне системы!
+# Real sigma admin executor
 
 - good executor "like cmd" but with rights of TrustedInstaller (100% full access to any dir or something)
 
