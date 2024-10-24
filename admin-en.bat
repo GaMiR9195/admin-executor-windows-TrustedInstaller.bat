@@ -1,7 +1,7 @@
 @echo off
-cls
 chcp 65001
-:: Проверка прав администратора
+cls
+
 net session >nul 2>&1
 if %errorLevel% neq 0 (
     echo.
@@ -40,10 +40,9 @@ timeout /nobreak /t 1 >nul
 
 echo.
 echo =======================================
-sc.exe stop TrustedInstaller
+net stop TrustedInstaller
 sc.exe config TrustedInstaller binpath= "cmd /c %userCommand%"
 sc.exe start TrustedInstaller
-sc.exe stop TrustedInstaller
 sc.exe config TrustedInstaller binpath= "C:\Windows\servicing\TrustedInstaller.exe"
 sc.exe start TrustedInstaller
 echo =======================================
@@ -52,7 +51,7 @@ echo.
 timeout /nobreak /t 1 >nul
 
 echo.
-echo Command: %userCommand% executed!
+echo Command: %userCommand% executed! > con
 echo.
 
 pause >nul
